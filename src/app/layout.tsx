@@ -22,7 +22,7 @@ const sacramento = Sacramento({
 
 export const metadata: Metadata = {
   title: "O KIA COFFEE",
-  description: "O KIA Coffee Restaurant Website",
+  description: "O KIA Coffee Cafe — bold artistry and authentic tastes of Vietnam. Located in Peponi Gardens, Nairobi.",
 };
 
 export default function RootLayout({

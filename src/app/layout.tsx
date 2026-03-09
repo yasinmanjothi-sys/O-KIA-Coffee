@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
-import { Caveat } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Poiret_One, Sacramento } from "next/font/google";
 import "./globals.css";
 
-const caveat = Caveat({
-  variable: "--font-caveat",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400"],
 });
 
-const bristol = localFont({
-  src: "../fonts/Bristol-Regular.otf",
-  variable: "--font-bristol",
+const poiretOne = Poiret_One({
+  variable: "--font-poiret",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const sacramento = Sacramento({
+  variable: "--font-sacramento",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
-  title: "ABOE",
-  description: "Aboe Restaurant Website",
+  title: "O KIA COFFEE",
+  description: "O KIA Coffee Restaurant Website",
 };
 
 export default function RootLayout({
@@ -26,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${caveat.variable} ${bristol.variable} antialiased font-caveat`}
+        className={`${inter.variable} ${poiretOne.variable} ${sacramento.variable} antialiased font-inter font-light tracking-wide`}
       >
         {children}
       </body>

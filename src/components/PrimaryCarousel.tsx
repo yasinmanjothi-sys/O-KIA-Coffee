@@ -8,10 +8,9 @@ export default function PrimaryCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const mockupImages = [
-        { id: 1, src: '/images/Screenshot 2026-02-27 at 19.53.32.png', alt: 'Aboe Restaurant Interior 1' },
-        { id: 2, src: '/images/Screenshot 2026-02-27 at 19.53.53.png', alt: 'Aboe Restaurant Interior 2' },
-        { id: 3, src: '/images/Screenshot 2026-02-27 at 19.54.14.png', alt: 'Aboe Restaurant Interior 3' },
-        { id: 4, src: '/images/Screenshot 2026-02-27 at 19.54.36.png', alt: 'Aboe Restaurant Interior 4' }
+        { id: 1, src: '/images/Screenshot 2026-03-06 at 15.12.15.png', alt: 'O KIA Coffee Restaurant Interior 1' },
+        { id: 2, src: '/images/Screenshot 2026-03-06 at 15.12.38.png', alt: 'O KIA Coffee Restaurant Interior 2' },
+        { id: 3, src: '/images/Screenshot 2026-03-06 at 15.13.12.png', alt: 'O KIA Coffee Restaurant Interior 3' }
     ];
 
     const handleNext = () => {
@@ -23,9 +22,9 @@ export default function PrimaryCarousel() {
     };
 
     return (
-        <section className="relative w-full bg-cream overflow-hidden pb-12 pt-12 flex flex-col items-center">
+        <section className="relative w-full overflow-hidden pb-12 pt-12 flex flex-col items-center">
             {/* Top Green Background Peek */}
-            <div className="absolute top-0 left-0 w-full h-[30%] sm:h-[40%] bg-sage z-0"></div>
+            <div className="absolute top-0 left-0 w-full h-[30%] sm:h-[40%] bg-neutral z-0"></div>
 
             {/* Static Image Carousel block overlapping the green/cream boundary */}
             <div className="relative z-10 w-[92vw] max-w-7xl h-[60vh] md:h-[75vh] rounded-[2rem] overflow-hidden shadow-2xl">
@@ -54,15 +53,15 @@ export default function PrimaryCarousel() {
             <div className="relative z-10 w-[92vw] max-w-7xl flex justify-end mt-4 space-x-3 pr-2">
                 <button
                     onClick={handlePrev}
-                    className="w-12 h-12 rounded-[2rem] border-2 border-sage text-sage-dark flex items-center justify-center bg-cream pill-shadow"
+                    className="w-12 h-12 rounded-full border border-pink text-maroon-dark flex items-center justify-center bg-neutral pill-shadow"
                 >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft size={24} strokeWidth={1} />
                 </button>
                 <button
                     onClick={handleNext}
-                    className="w-12 h-12 rounded-[2rem] border-2 border-sage text-sage-dark flex items-center justify-center bg-cream pill-shadow"
+                    className="w-12 h-12 rounded-full border border-pink text-maroon-dark flex items-center justify-center bg-neutral pill-shadow"
                 >
-                    <ChevronRight size={20} />
+                    <ChevronRight size={24} strokeWidth={1} />
                 </button>
             </div>
         </section>

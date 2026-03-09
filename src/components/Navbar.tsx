@@ -34,22 +34,22 @@ export default function Navbar({ alwaysShow = false }: { alwaysShow?: boolean })
                     pointerEvents: hidden ? 'none' : 'auto'
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 ${alwaysShow ? 'text-sage-dark bg-cream/80 backdrop-blur-md shadow-sm' : 'mix-blend-difference text-cream'}`}
+                className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 ${alwaysShow ? 'text-maroon-dark bg-neutral/80 backdrop-blur-md shadow-sm' : ''}`}
             >
                 <div className="flex-1">
-                    <Link href="/#menu" className="hidden md:inline-block px-6 py-2 rounded-[2rem] border-2 border-sage text-sage-dark font-caveat text-xs tracking-widest uppercase bg-transparent pill-shadow">
+                    <Link href="/#menu" className="hidden md:inline-block px-6 py-2 rounded-full border border-pink text-maroon-dark font-inter tracking-wide font-light text-xs st uppercase bg-neutral pill-shadow">
                         Menu
                     </Link>
                 </div>
 
                 <div className="flex-1 text-center">
-                    <Link href="/" className="font-bristol text-3xl tracking-tight uppercase">
-                        ABOE
+                    <Link href="/" style={{ color: '#5C102C' }} className="font-poiret font-light text-3xl tracking-widest uppercase">
+                        O KIA COFFEE
                     </Link>
                 </div>
 
                 <div className="flex-1 flex justify-end items-center gap-4">
-                    <Link href="/reserve" className="hidden md:inline-block px-6 py-2 rounded-[2rem] border-2 border-sage text-sage-dark font-caveat text-xs tracking-widest uppercase bg-transparent pill-shadow">
+                    <Link href="/reserve" className="hidden md:inline-block px-6 py-2 rounded-full border border-pink text-maroon-dark font-inter tracking-wide font-light text-xs st uppercase bg-neutral pill-shadow">
                         Book a table
                     </Link>
                     <button
@@ -57,7 +57,7 @@ export default function Navbar({ alwaysShow = false }: { alwaysShow?: boolean })
                         className="md:hidden p-2 -mr-2"
                         aria-label="Open menu"
                     >
-                        <Menu className="w-6 h-6" />
+                        <Menu className={`w-6 h-6 ${alwaysShow ? '' : 'mix-blend-difference text-neutral'}`} />
                     </button>
                 </div>
             </motion.nav>
@@ -70,7 +70,7 @@ export default function Navbar({ alwaysShow = false }: { alwaysShow?: boolean })
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-[60] bg-cream flex flex-col items-center justify-center p-6 text-sage-dark"
+                        className="fixed inset-0 z-[60] bg-neutral flex flex-col items-center justify-center p-6 text-maroon-dark"
                     >
                         <button
                             onClick={() => setMobileMenuOpen(false)}
@@ -84,14 +84,14 @@ export default function Navbar({ alwaysShow = false }: { alwaysShow?: boolean })
                             <Link
                                 href="/#menu"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="w-full text-center px-8 py-4 rounded-[2rem] border-2 border-sage text-sage-dark font-caveat text-xl tracking-widest uppercase bg-transparent pill-shadow"
+                                className="w-full text-center px-8 py-4 rounded-full border border-pink text-maroon-dark font-inter tracking-wide font-light text-xl st uppercase bg-neutral pill-shadow"
                             >
                                 Menu
                             </Link>
                             <Link
                                 href="/reserve"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="w-full text-center px-8 py-4 rounded-[2rem] border-2 border-sage text-sage-dark font-caveat text-xl tracking-widest uppercase bg-transparent pill-shadow"
+                                className="w-full text-center px-8 py-4 rounded-full border border-pink text-maroon-dark font-inter tracking-wide font-light text-xl st uppercase bg-neutral pill-shadow"
                             >
                                 Book a table
                             </Link>

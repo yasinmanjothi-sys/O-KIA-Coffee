@@ -42,12 +42,14 @@ export default function SecondaryCarousel() {
     };
 
     return (
-        <section className="w-full text-maroon-dark py-24 px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-20">
-
+        <section className="w-full text-neutral py-24 px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-20 bg-maroon blend-overlay-container">
+            {/* Halftone Overlay Background Space */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-multiply bg-[url('/halftone-placeholder.svg')]" />
+            
             {/* Text Column */}
-            <div className="relative flex flex-col justify-center w-full h-full min-h-[400px] lg:order-last">
+            <div className="relative flex flex-col justify-center w-full h-full min-h-[400px] lg:order-last z-10">
 
-                <p className="text-xl md:text-2xl font-inter tracking-wide font-light leading-snug text-pink uppercase max-w-xs md:max-w-sm relative z-10 mt-12 lg:mt-0">
+                <p className="text-xl md:text-2xl font-inter tracking-wide font-light leading-snug text-[#9FCC45] uppercase max-w-xs md:max-w-sm relative mt-12 lg:mt-0">
                     We believe great coffee and street food tell a story. From the slow drip of our phin filters to the satisfying crunch of our warm baguettes, every element is passionately crafted from scratch.
                 </p>
 
@@ -72,7 +74,7 @@ export default function SecondaryCarousel() {
                                     opacity: isAnimatingOut ? 0 : 1 - index * 0.15,
                                 }}
                                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                                className="absolute top-0 left-0 w-full h-full rounded-[2rem] overflow-hidden shadow-2xl shadow-maroon-dark/30"
+                                className="absolute top-0 left-0 w-full h-full rounded-[2.5rem] md:rounded-[4rem] lg:rounded-[5rem] overflow-hidden shadow-2xl border border-[#E84596]/40"
                                 style={{ transformOrigin: 'top center' }}
                             >
                                 <Image
@@ -91,21 +93,21 @@ export default function SecondaryCarousel() {
                 <div className="flex space-x-4">
                     <button
                         onClick={handlePrev}
-                        className="w-12 h-12 rounded-full border border-pink text-maroon-dark flex items-center justify-center bg-neutral pill-shadow"
+                        className="w-14 h-14 rounded-full border border-[#E84596] text-[#FDFDFD] flex items-center justify-center bg-transparent hover:bg-[#E84596]/10 transition-colors"
                     >
-                        <ChevronLeft size={24} strokeWidth={1} />
+                        <ChevronLeft size={28} strokeWidth={1} />
                     </button>
                     <button
                         onClick={handleNext}
-                        className="w-12 h-12 rounded-full border border-pink text-maroon-dark flex items-center justify-center bg-neutral pill-shadow"
+                        className="w-14 h-14 rounded-full border border-[#E84596] text-[#FDFDFD] flex items-center justify-center bg-transparent hover:bg-[#E84596]/10 transition-colors"
                     >
-                        <ChevronRight size={24} strokeWidth={1} />
+                        <ChevronRight size={28} strokeWidth={1} />
                     </button>
                 </div>
             </div>
 
             {/* Bottom Border Line */}
-            <div className="w-full absolute bottom-0 left-0 h-px bg-pink"></div>
+            <div className="w-full absolute bottom-0 left-0 h-px bg-[#E84596] opacity-50"></div>
         </section>
     );
 }

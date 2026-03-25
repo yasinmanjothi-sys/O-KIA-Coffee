@@ -2,18 +2,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-maroon: #5C102C;
-  --color-maroon-dark: #3a0a1c;
-  --color-pink: #F04C92;
-  --color-neutral: #FDFDFD;
-  --color-green: #0EA051;
+  --color-maroon: #6E0D31; /* Spanish Purple */
+  --color-maroon-dark: #3a0318;
+  --color-pink: #E84596; /* Royal Pink */
+  --color-neutral: #FDFDFD; /* Light Neutral (Off-White/Cream base) */
+  --color-green: #9FCC45; /* Pear Green */
+  --color-cal-poly: #1C5028; /* Cal Poly Pomona Green */
+  --color-caramel: #FFD695; /* Caramel */
 
   --color-background: var(--color-neutral);
   --color-foreground: var(--color-maroon);
+
+  --font-okia: var(--font-okia), 'OKIATYPE', sans-serif;
+  --font-playwrite: 'Playwrite CU', cursive;
 }
 
-@utility font-sacramento {
-  font-family: var(--font-sacramento), 'Sacramento', cursive;
+@utility font-playwrite {
+  font-family: 'Playwrite CU', cursive;
 }
 
 @utility font-poiret {
@@ -25,12 +30,8 @@
 }
 
 body {
-  background-color: #FDFDFD;
-  background-image:
-    radial-gradient(circle, rgba(240, 76, 146, 0.45) 2px, transparent 2px),
-    radial-gradient(circle, rgba(14, 160, 81, 0.35) 1.5px, transparent 1.5px);
-  background-size: 48px 48px, 72px 72px;
-  background-position: 0 0, 24px 36px;
+  background-color: var(--color-maroon);
+  background-image: none;
   color: var(--color-foreground);
   font-family: var(--font-inter), 'Inter', sans-serif;
   overflow-x: hidden;
@@ -45,9 +46,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-poiret), 'Poiret One', cursive;
+  font-family: var(--font-okia), 'OKIATYPE', sans-serif;
   font-weight: 400;
   letter-spacing: 0.05em;
+  color: var(--color-maroon);
 }
 
 /* Custom rounded corners pill with a solid shadow effect */
@@ -60,5 +62,19 @@ h6 {
   .pill-shadow:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px 0px var(--color-maroon-dark);
+  }
+
+  .border-sticker {
+    border: 2px solid var(--color-maroon);
+  }
+
+  .btn-interactive {
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn-interactive:hover {
+    transform: translateY(2px);
+    background-color: var(--color-maroon);
+    color: var(--color-neutral);
   }
 }

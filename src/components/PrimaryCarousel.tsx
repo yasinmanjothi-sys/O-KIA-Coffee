@@ -22,12 +22,12 @@ export default function PrimaryCarousel() {
     };
 
     return (
-        <section className="relative w-full overflow-hidden pb-12 pt-12 flex flex-col items-center">
-            {/* Top Green Background Peek */}
-            <div className="absolute top-0 left-0 w-full h-[30%] sm:h-[40%] bg-neutral z-0"></div>
+        <section className="relative w-full overflow-hidden pb-12 pt-12 flex flex-col items-center bg-[#F5F3E5]">
+            {/* Top Background Peek (Maroon) */}
+            <div className="absolute top-0 left-0 w-full h-[30%] sm:h-[40%] bg-[#6E0D31] z-0"></div>
 
-            {/* Static Image Carousel block overlapping the green/cream boundary */}
-            <div className="relative z-10 w-[92vw] max-w-7xl h-[60vh] md:h-[75vh] rounded-[2rem] overflow-hidden shadow-2xl">
+            {/* Static Image Carousel block overlapping the boundary */}
+            <div className="relative z-10 w-[92vw] max-w-7xl h-[60vh] md:h-[75vh] rounded-[3rem] md:rounded-[4rem] lg:rounded-full overflow-hidden shadow-2xl border border-[#E84596]/30">
 
                 {/* Images Container */}
                 <div className="w-full h-full relative">
@@ -50,18 +50,18 @@ export default function PrimaryCarousel() {
             </div>
 
             {/* Carousel Navigation Buttons outside the block */}
-            <div className="relative z-10 w-[92vw] max-w-7xl flex justify-end mt-4 space-x-3 pr-2">
+            <div className="relative z-10 w-[92vw] max-w-7xl flex justify-end mt-6 space-x-4 pr-4">
                 <button
                     onClick={handlePrev}
-                    className="w-12 h-12 rounded-full border border-pink text-maroon-dark flex items-center justify-center bg-neutral pill-shadow"
+                    className="w-14 h-14 rounded-full border border-[#E84596] text-[#6E0D31] flex items-center justify-center bg-transparent hover:bg-[#E84596]/10 transition-colors"
                 >
-                    <ChevronLeft size={24} strokeWidth={1} />
+                    <ChevronLeft size={28} strokeWidth={1} />
                 </button>
                 <button
                     onClick={handleNext}
-                    className="w-12 h-12 rounded-full border border-pink text-maroon-dark flex items-center justify-center bg-neutral pill-shadow"
+                    className="w-14 h-14 rounded-full border border-[#E84596] text-[#6E0D31] flex items-center justify-center bg-transparent hover:bg-[#E84596]/10 transition-colors"
                 >
-                    <ChevronRight size={24} strokeWidth={1} />
+                    <ChevronRight size={28} strokeWidth={1} />
                 </button>
             </div>
         </section>

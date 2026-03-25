@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 type MenuItem = {
     name: string;
@@ -59,7 +61,7 @@ const foodData: MenuSection[] = [
     {
         title: 'Bánh Mì (Vietnamese Baguettes)',
         items: [
-            { name: 'Classic Cold Cut', description: 'Bánh Mì Thịt Nguội: Pâté, chả lụa, jambon, pickled daikon & carrots, cilantro.', price: '850' },
+            { name: 'Classic Cold Cut', description: 'Bánh Mì Thịt Nguội: Pâté, chả lụa, jambon, pickled daikon.', price: '850' },
             { name: 'Grilled Pork', description: 'Bánh Mì Thịt Nướng: Lemongrass marinated pork with fresh herbs.', price: '900' },
             { name: 'Lemongrass Chicken', description: 'Bánh Mì Gà Nướng: Char-grilled chicken thigh, spicy mayo.', price: '900' },
             { name: 'Crispy Tofu (V)', description: 'Bánh Mì Chay: Fried lemongrass tofu, mushroom pâté, soy-glaze.', price: '800' },
@@ -99,38 +101,70 @@ export default function MenuGrid() {
     const activeSections = [activeData[activeSubTabIndex] || activeData[0]];
 
     return (
-        <section id="menu" className="w-full bg-neutral text-pink py-24 px-6 md:px-12 relative z-20 min-h-screen">
-            <div className="max-w-4xl mx-auto flex flex-col items-center">
+        <section id="menu" className="w-full bg-[#F5F3E5] text-[#6E0D31] py-24 px-6 md:px-12 relative z-20 min-h-screen overflow-hidden blend-overlay-container">
+            {/* Halftone Overlay Background Space - Updated for Light BG */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('/halftone-placeholder.svg')]" />
+            
+            {/* Interactive Decorative Floating Masks (Stickers) */}
+            <motion.div 
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                className="absolute top-[10%] left-[-2%] w-32 h-32 md:w-64 md:h-64 opacity-80 cursor-pointer z-10 transition-shadow hover:drop-shadow-xl"
+            >
+                <Image src="/all masks /OKIA-Mask-All-24-11-25-05.svg" alt="Interactive Sticker" fill className="object-contain" />
+            </motion.div>
+            
+            <motion.div 
+                whileHover={{ scale: 1.15, rotate: 15 }}
+                className="absolute top-[35%] right-[-5%] w-40 h-40 md:w-80 md:h-80 opacity-80 cursor-pointer z-10 transition-shadow hover:drop-shadow-xl"
+            >
+                <Image src="/all masks /Hy (joy) svg.svg" alt="Interactive Sticker" fill className="object-contain" />
+            </motion.div>
 
-                {/* Tab Navigation */}
-                <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 mb-10 font-poiret tracking-wider font-light text-3xl md:text-5xl lg:text-6xl ">
+            <motion.div 
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                className="absolute bottom-[20%] left-[2%] w-36 h-36 md:w-72 md:h-72 opacity-80 cursor-pointer z-10 transition-shadow hover:drop-shadow-xl"
+            >
+                <Image src="/all masks /Ai (love).svg" alt="Interactive Sticker" fill className="object-contain" />
+            </motion.div>
+            
+            <motion.div 
+                whileHover={{ scale: 1.1, rotate: 10 }}
+                className="absolute bottom-[5%] right-[10%] w-24 h-24 md:w-48 md:h-48 opacity-80 cursor-pointer z-10 transition-shadow hover:drop-shadow-xl"
+            >
+                <Image src="/all masks /OKIA-Mask-All-24-11-25-10.svg" alt="Interactive Sticker" fill className="object-contain" />
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto flex flex-col items-center relative z-10">
+
+                {/* Main Tab Navigation */}
+                <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 mb-10 font-poiret tracking-wider font-light text-3xl md:text-5xl lg:text-6xl text-[#E84596]">
                     <button
                         onClick={() => handleTabChange('food')}
-                        className={`transition-opacity ${activeTab === 'food' ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
+                        className={`transition-opacity ${activeTab === 'food' ? 'opacity-100 text-[#6E0D31]' : 'opacity-40 hover:opacity-70'}`}
                     >
                         FOOD
                     </button>
                     <button
                         onClick={() => handleTabChange('drinks')}
-                        className={`transition-opacity ${activeTab === 'drinks' ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
+                        className={`transition-opacity ${activeTab === 'drinks' ? 'opacity-100 text-[#6E0D31]' : 'opacity-40 hover:opacity-70'}`}
                     >
                         DRINKS
                     </button>
                     <button
                         onClick={() => handleTabChange('desserts')}
-                        className={`transition-opacity ${activeTab === 'desserts' ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
+                        className={`transition-opacity ${activeTab === 'desserts' ? 'opacity-100 text-[#6E0D31]' : 'opacity-40 hover:opacity-70'}`}
                     >
                         DESSERTS
                     </button>
                 </div>
 
                 {/* Sub-Tab Navigation */}
-                <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 lg:gap-x-8 lg:gap-y-4 mb-16 font-poiret tracking-wider font-light text-lg sm:text-xl md:text-2xl lg:text-3xl  uppercase">
+                <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 lg:gap-x-8 lg:gap-y-4 mb-16 font-poiret tracking-wider font-light text-lg sm:text-xl md:text-2xl lg:text-3xl uppercase text-[#6E0D31]">
                     {activeData.map((section, idx) => (
                         <button
                             key={idx}
                             onClick={() => setActiveSubTabIndex(idx)}
-                            className={`transition-all ${activeSubTabIndex === idx ? 'opacity-100 border-b-2 border-pink-dark' : 'opacity-40 hover:opacity-70'}`}
+                            className={`transition-all ${activeSubTabIndex === idx ? 'opacity-100 border-b-2 border-[#E84596]' : 'opacity-40 hover:opacity-70'}`}
                         >
                             {section.title?.toUpperCase()}
                         </button>
@@ -139,33 +173,40 @@ export default function MenuGrid() {
 
                 {/* Optional Addons note */}
                 {activeTab === 'food' && (
-                    <div className="mb-12 w-full text-center font-inter font-light text-xl md:text-2xl italic opacity-90 tracking-wide">
+                    <div className="mb-12 w-full text-center font-playwrite text-lg md:text-xl text-[#FFD695] drop-shadow-sm opacity-90 tracking-wide">
                         *all additional add-ons are a flat rate ksh150
                     </div>
                 )}
 
-                {/* Menu Content */}
-                <div className="w-full max-w-xl mx-auto font-inter font-light">
-                    {activeSections.map((section, sectionIdx) => (
-                        <div key={sectionIdx} className="break-inside-avoid mb-12">
-                            {/* Title intentionally omitted as it is now in the sub-tabs array */}
+                {/* Section Divider */}
+                <div className="w-full max-w-sm h-px bg-[#E84596] mb-12 opacity-30"></div>
 
-                            <ul className="flex flex-col space-y-6">
-                                {section.items.map((item, itemIdx) => (
-                                    <li key={itemIdx} className="flex flex-col text-center">
-                                        <div className="flex justify-center items-end text-2xl md:text-3xl font-light tracking-wide leading-tight w-full max-w-[90%] mx-auto">
-                                            <span>{item.name}</span>
-                                        </div>
-                                        {item.price && (
-                                            <div className="text-center font-light tracking-wider text-xl md:text-2xl mt-1 opacity-90">{item.price}</div>
-                                        )}
-                                        {item.description && (
-                                            <p className="lowercase text-base md:text-lg opacity-85 italic mt-1.5 leading-snug w-full max-w-[85%] mx-auto font-light">
-                                                {item.description}
-                                            </p>
-                                        )}
-                                    </li>
-                                ))}
+                {/* Menu Content Grid */}
+                <div className="w-full max-w-5xl mx-auto font-inter font-light">
+                    {activeSections.map((section, sectionIdx) => (
+                        <div key={sectionIdx} className="mb-12 w-full">
+                            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4">
+                                {section.items.map((item, itemIdx) => {
+                                    const bgColors = ['bg-pink', 'bg-green', 'bg-caramel'];
+                                    const bgColor = bgColors[itemIdx % bgColors.length];
+                                    return (
+                                        <li key={itemIdx} className={`flex flex-col text-center p-8 rounded-[40px] border-sticker btn-interactive relative overflow-hidden ${bgColor} shadow-sm group`}>
+                                            <div className="flex justify-center flex-1 items-center text-xl md:text-2xl font-okia tracking-wide leading-tight w-full mx-auto z-10">
+                                                <span>{item.name}</span>
+                                            </div>
+                                            {item.description && (
+                                                <p className="text-sm md:text-base opacity-90 italic mt-3 mb-2 leading-snug w-full font-playwrite z-10">
+                                                    {item.description}
+                                                </p>
+                                            )}
+                                            {item.price && (
+                                                <div className="mt-auto pt-4 text-center font-bold tracking-wider text-xl z-10 border-t border-maroon/20 group-hover:border-neutral/30">
+                                                    {item.price}
+                                                </div>
+                                            )}
+                                        </li>
+                                    );
+                                })}
                             </ul>
                         </div>
                     ))}
@@ -173,13 +214,15 @@ export default function MenuGrid() {
 
                 {/* Footer Copy */}
                 {activeTab === 'desserts' && (
-                    <div className="mt-16 text-center font-inter tracking-wider font-light text-xs md:text-sm uppercase opacity-80">
+                    <div className="mt-16 text-center font-inter tracking-wider font-light text-xs md:text-sm uppercase opacity-60 text-[#1C5028]">
                         <p>V-VEGAN, N-CONTAINS NUTS, GF-GLUTEN FREE, VO-VEGAN OPTION AVAILABLE</p>
                     </div>
                 )}
 
-                <div className="mt-16 w-full flex justify-center py-8">
-                    <span className="font-poiret tracking-widest text-3xl md:text-4xl lowercase opacity-90">
+                <div className="mt-20 w-full max-w-sm h-px bg-[#E84596] opacity-30"></div>
+
+                <div className="mt-12 w-full flex justify-center py-8">
+                    <span className="font-poiret tracking-widest text-3xl md:text-4xl lowercase opacity-90 text-[#6E0D31]">
                         o kia coffee cafe
                     </span>
                 </div>
